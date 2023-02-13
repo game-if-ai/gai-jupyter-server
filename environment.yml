@@ -1,0 +1,27 @@
+# Copyright (c) Datalayer, Inc. https://datalayer.io
+# Distributed under the terms of the MIT License.
+
+name: gai-jupyter-server
+channels:
+  - conda-forge
+#  - defaults
+dependencies:
+  - jupyter-packaging
+  - matplotlib
+  - nodejs=18.7.0
+  - pandas
+  - pip
+  - pycurl
+  - pytest
+  - python=3.10.4
+  - twine
+  - yarn=1.22.19
+  - pip:
+    - jupyterlab==4.0.0a33
+    - ipywidgets==8.0.4
+    - jupyter_server_terminals
+#    - jupyterlab-lsp
+#    - python-language-server[all]
+    - plotly
+    - bqplot
+    - pyecharts
