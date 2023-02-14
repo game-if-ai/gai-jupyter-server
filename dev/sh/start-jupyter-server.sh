@@ -10,5 +10,5 @@ echo
 
 export CURR_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-jupyter server \
+jupyter server  --allow-root \
   --config=${CURR_DIR}/../config/jupyter_server_config.py
