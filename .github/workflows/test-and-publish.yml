@@ -3,7 +3,6 @@ on: push
 jobs:
   publish-check:
     name: publish check
-    needs:
     runs-on: ubuntu-latest
     outputs:
       is_release: ${{ steps.is_release.outputs.is_release }}
