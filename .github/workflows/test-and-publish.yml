@@ -28,12 +28,12 @@ jobs:
       - name: docker login
         run: docker login -u ${{ secrets.DOCKER_LOGIN }} -p ${{ secrets.DOCKER_PASSWORD }}
       - name: docker build
-        run: export DOCKER_IMAGE=game-if-ai/gai-jupyter-server:${{ steps.tag.outputs.image_tag }} && make docker-build
+        run: export DOCKER_IMAGE=uscictdocker/gai-jupyter-server:${{ steps.tag.outputs.image_tag }} && make docker-build
       - name: docker tag release as version
         if: needs.publish-check.outputs.is_release == 'true'
-        run: docker tag "game-if-ai/gai-jupyter-server:${{ steps.tag.outputs.image_tag }}" "game-if-ai/gai-jupyter-server:${GITHUB_REF#refs/tags/}"
+        run: docker tag "uscictdocker/gai-jupyter-server:${{ steps.tag.outputs.image_tag }}" "uscictdocker/gai-jupyter-server:${GITHUB_REF#refs/tags/}"
       - name: docker tag main as latest
         if: github.ref == 'refs/heads/main'
-        run: docker tag "game-if-ai/gai-jupyter-server:${{ steps.tag.outputs.image_tag }}" "game-if-ai/gai-jupyter-server:latest"
+        run: docker tag "uscictdocker/gai-jupyter-server:${{ steps.tag.outputs.image_tag }}" "uscictdocker/gai-jupyter-server:latest"
       - name: docker push
-        run: docker push --all-tags game-if-ai/gai-jupyter-server
+        run: docker push --all-tags uscictdocker/gai-jupyter-server
