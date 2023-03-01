@@ -33,7 +33,6 @@ jobs:
         if: needs.publish-check.outputs.is_release == 'true'
         run: docker tag "uscictdocker/gai-jupyter-server:${{ steps.tag.outputs.image_tag }}" "uscictdocker/gai-jupyter-server:${GITHUB_REF#refs/tags/}"
       - name: docker tag main as latest
-        if: github.ref == 'refs/heads/main'
         run: docker tag "uscictdocker/gai-jupyter-server:${{ steps.tag.outputs.image_tag }}" "uscictdocker/gai-jupyter-server:latest"
       - name: docker push
         run: docker push --all-tags uscictdocker/gai-jupyter-server
