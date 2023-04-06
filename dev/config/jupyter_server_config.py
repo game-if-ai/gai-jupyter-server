@@ -101,3 +101,9 @@ c.ServerApp.kernel_ws_protocol = None # None or ''
 #################
 
 c.LabApp.collaborative = True
+# shutdown kernels after no activity for 10 minutes
+c.MappingKernelManager.cull_idle_timeout = 10 * 60
+# Check every minute
+c.MappingKernelManager.cull_interval = 60
+# cull connected (e.g. Browser tab open)
+c.MappingKernelManager.cull_connected = True
